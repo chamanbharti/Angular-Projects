@@ -11,6 +11,7 @@ import { Food } from 'src/app/shared/models/Food';
 export class HomeComponent implements OnInit{
 
   foods:Food[] = [];
+  pageTitle = 'Food List';
   constructor(private api:FoodService,
     activatedRoute:ActivatedRoute){
       activatedRoute.params.subscribe( (params) =>{
@@ -24,6 +25,9 @@ export class HomeComponent implements OnInit{
 
   }
   ngOnInit(): void {
-
+    console.log('food.stars:'+JSON.stringify(this.foods));
+  }
+  onRatingClicked(message:string):void{
+    this.pageTitle = 'Food List: '+message;
   }
 }

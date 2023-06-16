@@ -17,4 +17,8 @@ export class FoodService {
     .includes(searchTerm.toLowerCase())
     )
   }
+  getFoodById(foodId:string){
+    console.log('getFoodById:'+foodId);
+    return this.getAll().find(food => food.id == foodId)??new Food();
+  }
 }
